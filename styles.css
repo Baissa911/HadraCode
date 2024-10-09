@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+:root {
+    --primary: #ffffff;
+    --primary-dark: #ffffff;
+    --secondary: #bc4749;
+    --background: #00071d;
+    --text: #ffffff;
+    --text-light: #4a4e69;
+    --code-bg: #1b1c20;
+    --code-text: #abb2bf;
+    --sidebar-bg: #00172e;
+    --loading-bg: rgba(0, 0, 0, 0.5);
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: var(--primary);
+    color: var(--background);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    color: var(--background);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.nav-button:hover {
+    color: var(--text);
+}
+
+.layout {
+    display: flex;
+    flex-grow: 1;
+}
+
+.sidebar {
+    background-color: var(--sidebar-bg);
+    padding: 20px;
+    width: 250px;
+    border-right: 2px solid var(--primary-dark);
+}
+
+.sidebar h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+main {
+    flex-grow: 1;
+    padding: 2rem;
+}
+
+.editor-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+h2 {
+    color: var(--primary-dark);
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 0.5rem;
+}
+
+.code-wrapper, .output-wrapper {
+    background-color: var(--code-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#code-input, #code-output {
+    width: 100%;
+    min-height: 300px;
+    padding: 1rem;
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    border: none;
+    background-color: transparent;
+    color: var(--code-text);
+    resize: vertical;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+#code-input {
+    outline: none;
+}
+
+#code-input:focus {
+    box-shadow: inset 0 0 0 2px var(--primary);
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.action-button {
+    background-color: var(--primary);
+    color: var(--background);
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.action-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.action-button:active {
+    transform: scale(0.98);
+}
+
+.example-select {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+    background-color: var(--background);
+    color: var(--text);
+}
+
+footer {
+    background-color: var(--primary-dark);
+    color: var(--background);
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    color: var(--background);
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.notification.show {
+    opacity: 1;
+}
+
+.notification.success {
+    background-color: var(--primary);
+}
+
+.notification.error {
+    background-color: var(--secondary);
+}
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--loading-bg);
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+
+.CodeMirror {
+    height: auto;
+    border: 1px solid var(--primary-dark);
+    border-radius: 4px;
+    background-color: var(--code-bg);
+    color: var(--code-text);
+}
+
+.CodeMirror-lines {
+    padding: 10px;
+}
+
+
+
+.loading.show {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .editor-container {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DzCode Translator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/material-darker.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Hadra Code Translator</h1>
+            <nav></nav>
+        </div>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <h3>Instructions</h3>
+            <ul>
+                <li>etba: استخدم هذه الكلمة لطباعة النصوص في وحدة التحكم.</li>
+                <li>ida: تُستخدم لبدء عبارة شرطية، حيث يمكنك تنفيذ كود معين إذا كانت الشرط صحيحًا.</li>
+                <li>wela: تُستخدم لتنفيذ كود بديل إذا كان الشرط في عبارة if غير صحيح.</li>
+                <li>wela_ida: تُستخدم لتحديد شرط إضافي في عبارة شرطية.</li>
+                <li>talama: تُستخدم لإنشاء حلقة تستمر في التنفيذ طالما أن الشرط صحيح.</li>
+                <li>likol: تُستخدم لإنشاء حلقة تكرارية مع عدد محدد من التكرارات.</li>
+                <li>dala: تُستخدم لتعريف دالة جديدة.</li>
+                <li>arja: تُستخدم لإرجاع قيمة من دالة.</li>
+                <li>sahih وkhata: تُستخدم لتحديد القيم الصحيحة والخاطئة.</li>
+                <li>adad وnass وmasfofa وkaen: تُستخدم لتعريف الأنواع المختلفة من البيانات مثل الأعداد، السلاسل النصية، المصفوفات، والكائنات.</li>
+                <li>hawel وemsek وakhiran: تُستخدم لتعامل مع الأخطاء، حيث يمكنك محاولة تنفيذ كود معين والتقاط الأخطاء التي قد تحدث.</li>
+                <li>motaghayer وthabet: تُستخدم لتعريف المتغيرات المتغيرة والثابتة.</li>
+                <li>fea: تُستخدم لتعريف فئة جديدة (class).</li>
+                <li>وtasdeer: تُستخدم لاستيراد وتصدير الوحدات (modules).</li>
+                <li>entader وghayr_motazamen: تُستخدم للتعامل مع العمليات غير المتزامنة (asynchronous operations).</li>
+            </ul>
+        </aside>
+
+        <main class="container">
+            <div class="editor-container">
+                <div class="code-section">
+                    <h2>Code Editor</h2>
+                    <div class="code-wrapper">
+                        <textarea id="code-input">// Write DzCode here
+etba("Hello World!");
+                    
+  dala sum(a, b) {
+  arja a + b;
+                    }
+                    
+ etba(sum(3, 4));</textarea>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button id="run-button" class="action-button">Run Code</button>
+                        <button id="save-button" class="action-button">Save Code</button>
+                        <button id="load-button" class="action-button">Load Code</button>
+                    </div>
+                    <select id="example-select" class="example-select">
+                        <option value="">Choose an Example</option>
+                        <option value="hello">Hello World</option>
+                        <option value="loop">Loop</option>
+                        <option value="function">Function</option>
+                        <option value="conditional">Conditional</option>
+                        <option value="array">Array</option>
+                    </select>
+                </div>
+
+                <div class="output-section">
+                    <h2>Output</h2>
+                    <div class="output-wrapper">
+                        <pre><code id="code-output" class="language-javascript"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 Hadra Code. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div id="notification" class="notification"></div>
+    <div id="loading" class="loading">Executing...</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
