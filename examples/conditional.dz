@@ -1,0 +1,6 @@
+motaghayer omr = 18;
+ida (omr >= 18) {
+    etba("You are an adult");
+} wela {
+    etba("You are a minor");
+}

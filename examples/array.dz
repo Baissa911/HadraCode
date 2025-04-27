@@ -1,0 +1,4 @@
+motaghayer arqam = [1, 2, 3, 4, 5];
+likol (motaghayer raqm of arqam) {
+    etba(raqm * 2);
+}
