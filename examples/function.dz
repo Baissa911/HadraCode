@@ -1,0 +1,5 @@
+dala jam'(a, b) {
+    arja a + b;
+}
+
+etba(jam'(3, 4));
